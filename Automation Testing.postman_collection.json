@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "3d82115f-c4e8-4bd9-848d-115c7cd028c6",
+		"name": "Automation Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25859098",
+		"_collection_link": "https://www.postman.com/nokspace/workspace/ace/collection/25859098-3d82115f-c4e8-4bd9-848d-115c7cd028c6?action=share&source=collection_link&creator=25859098"
+	},
+	"item": [
+		{
+			"name": "https://automationintesting.online/room",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[\"rooms\"][0][\"roomName\"]).to.eql(\"101\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"username\":\"admin\",\r\n\"password\":\"password\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://automationintesting.online/room",
+					"protocol": "https",
+					"host": [
+						"automationintesting",
+						"online"
+					],
+					"path": [
+						"room"
+					]
+				},
+				"description": "testing the get data"
+			},
+			"response": []
+		},
+		{
+			"name": "www.facebook.com",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('visit FaceBook and get 200 ok', function()\r",
+							" \r",
+							"   {pm.response.to.have.status('200 Ok')},\r",
+							"\r",
+							");\r",
+							"\r",
+							"pm.test('visit FB and get 200 ok', function()\r",
+							" {pm.response.to.have.status(200) },\r",
+							");\r",
+							"\r",
+							"\r",
+							"pm.test('visit FB and get 200 ok', function()\r",
+							"   {pm.expect(pm.response.code).to.be.oneOf([201,202,200]) }\r",
+							"\r",
+							"  );\r",
+							"\r",
+							"\r",
+							"  pm.test('Cheaking if header is there', function()\r",
+							"  \r",
+							"  {\r",
+							"    pm.response.to.have.header('Content-Type')\r",
+							"  }\r",
+							"  \r",
+							"  );\r",
+							"\r",
+							"\r",
+							"  pm.test('asserting the values of our TCP', function()\r",
+							"  {\r",
+							"    pm.expect(pm.response.headers.get('Strict-Transport-Security')).to.eql('max-age=15552000; preload');\r",
+							"\r",
+							"  }\r",
+							"  );\r",
+							"\r",
+							"\r",
+							"  pm.test('checking cntent lenght', function()\r",
+							"  {\r",
+							"    pm.expect(pm.response.headers.get('X-XSS-Protection')).to.eql('0');\r",
+							"  }\r",
+							"  )\r",
+							"\r",
+							"\r",
+							"   pm.test('checking cookies', function()\r",
+							"  {\r",
+							"    pm.expect(pm.cookies.get('ps_n')).to.eql('0');\r",
+							"  }\r",
+							"  )\r",
+							"\r",
+							"\r",
+							"  pm.test('load time', function()\r",
+							"  {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"\r",
+							"  }\r",
+							"  \r",
+							"  )"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "www.facebook.com",
+					"host": [
+						"www",
+						"facebook",
+						"com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
